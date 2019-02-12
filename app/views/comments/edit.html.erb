@@ -1,0 +1,5 @@
+<h2>Editing Comment</h2>
+<%= form_tag course_comment_path([@course, @comment]), method: "patch" do %>
+    <%= text_field_tag :comment, @comment.comment %>
+    <%= submit_tag "Edit Comment", class: "button" %>
+<% end %> 
