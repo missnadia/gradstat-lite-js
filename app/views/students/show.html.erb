@@ -1,0 +1,15 @@
+<h2>Your Profile</h2>
+<div class="form">
+    <ul>
+        Name: <%= @student.full_name %>
+    </ul>
+    <ul>
+        Username: <%= @student.username %>
+    </ul>
+    <ul>
+        Email: <%= @student.email %>
+    </ul>
+    <ul>
+        <%= link_to "Edit Profile", edit_student_path, class: "submit_button" %>
+    </ul>
+</div>
