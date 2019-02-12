@@ -1,0 +1,31 @@
+<%= form_for([@student, @course]) do |f| %>
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <ul>
+    <%= f.label :name, "Select Course:" %><br>
+    <%= f.collection_select :name, Course::LESSONS, :to_s, :to_s, value: params[:name], include_blank: true %>
+  </ul>
+  <ul>
+    <%= f.label :time_spent, "How much time did you spend on this lesson?" %><br>
+    <%= f.number_field :time_spent, min: 0, value: @course.time_spent %> minutes
+  </ul>
+  <ul>
+    <%= f.label :date, "Date:" %>
+    <%= f.date_field :date, value: params[:date] %>
+  </ul>
+  <ul>
+    <%= f.label :completed, "Lesson completed? (Check if completed)" %>
+    <%= f.check_box :completed, value: params[:completed] %>
+  </ul>
+  <ul>
+    <%= f.submit class: "submit_button" %>
+  </ul>
+<% end %>
