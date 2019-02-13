@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @courses }
+      format.json { render json: @courses.to_json }
     end
   end
 
@@ -15,6 +15,10 @@ class CoursesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @course.to_json }
+    end
   end
 
   def edit

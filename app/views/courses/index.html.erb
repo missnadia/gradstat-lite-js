@@ -1,24 +1,6 @@
 <h2>Course Log</h2>
-<table id="students">
-  <tr>
-    <th>Course</th>
-    <th>Logged Hours</th>
-    <th>Date</th>
-    <% if current_user.admin? %>
-      <th>Username</th>
-    <% end %>
-  </tr>
-  <% @courses.each do |course| %>
-    <tr>
-      <td><%= link_to course.name, course_path(course) %></td>
-      <td><%= course.time_spent %></td>
-      <td><%= course.date %></td>
-      <% if current_user.admin? %>
-        <td><%= course.student.username %></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+<button id="load-course-log">Load Courses</button>
+<div id="ajax-course-data"></div>
 <ul>
   <%= link_to "Add New Course", new_course_path, class: "submit_button" %>
 </ul>
