@@ -2,6 +2,12 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   def index
+    current_user.admin ? @courses = Course.all.order('date DESC') : @courses = current_user.courses.order('date DESC')
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @courses }
+    end
   end
 
   def new
@@ -46,7 +52,6 @@ class CoursesController < ApplicationController
     params.require(:course).permit(
       :name,
       :time_spent,
-      :completed,
       :date,
       :student_id
     )
