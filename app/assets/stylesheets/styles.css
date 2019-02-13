@@ -1,0 +1,160 @@
+/* <<======== NAVBAR STYLES ========>> */
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-right: 2px solid #555;
+}
+
+.navbar li a:hover:not(.active) {
+  background-color: #008cba;
+  color: white;
+  font-weight: bold;
+}
+
+/* <<======== HEADER STYLES ========>> */
+h1 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #008cba;
+  color: white;
+}
+
+h2 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #008cba;
+  color: white;
+}
+
+/* <<======== TABLE STYLES ========>> */
+#students {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#students td,
+#students th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#students tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#students tr:hover {
+  background-color: #ddd;
+}
+
+#students th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #008cba;
+  color: white;
+}
+
+/* <<======== BUTTON STYLES ========>> */
+.button {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 14px;
+}
+
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.submit_button {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.submit_button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* <<======== LINK STYLES ========>> */
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+/* <<======== FORM STYLES ========>> */
+p {
+  width: 36%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+
+input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+}
+
+input[type]:focus {
+  background-color: #f0f8ff;
+}
+
+.form {
+  width: 285px;
+  padding: 12px 20px;
+  margin: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* <<======== ERROR STYLES ========>> */
+#error_explanation {
+  color: red;
+}
