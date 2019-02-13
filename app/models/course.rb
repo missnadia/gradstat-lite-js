@@ -25,36 +25,8 @@ class Course < ApplicationRecord
       "Rails form_tag Lab"
     ]
   
-    def self.total_hours
-      self.sum(:time_spent)
-    end
-  
-    def self.total_incompleted
-      self.where(completed: false).total_lessons
-    end
-  
-    def self.total_completed
-      self.where(completed: true).total_lessons
-    end
-  
-    def self.course_completed
-      LESSONS.count
-    end
-  
-    def self.total_lessons
-      self.distinct.count(:name)
-    end
-  
     def self.class_name
       self.distinct.pluck(:name)
-    end
-  
-    def self.average_hours
-      self.group(:name).average(:time_spent)
-    end
-  
-    def self.student_hours
-      self.group(:name).sum(:time_spent)
     end
   
     def student_username=(username)

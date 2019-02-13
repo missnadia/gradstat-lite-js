@@ -22,10 +22,6 @@
     <%= f.date_field :date, value: params[:date] %>
   </ul>
   <ul>
-    <%= f.label :completed, "Lesson completed? (Check if completed)" %>
-    <%= f.check_box :completed, value: params[:completed] %>
-  </ul>
-  <ul>
     <%= f.submit class: "submit_button" %>
   </ul>
 <% end %>

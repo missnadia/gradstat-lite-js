@@ -3,7 +3,6 @@
   <tr>
     <th>Course</th>
     <th>Logged Hours</th>
-    <th>Completed?</th>
     <th>Date</th>
     <% if current_user.admin? %>
       <th>Username</th>
@@ -13,7 +12,6 @@
     <tr>
       <td><%= link_to course.name, course_path(course) %></td>
       <td><%= course.time_spent %></td>
-      <td><%= course.completed ? "Yes" : "No" %></td>
       <td><%= course.date %></td>
       <% if current_user.admin? %>
         <td><%= course.student.username %></td>
