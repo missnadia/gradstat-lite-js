@@ -26,6 +26,7 @@ function getCourses() {
 function getNextCourse() {
   $('button#next-course').on('click', function (e) {
     e.preventDefault()
+    $('button#next-course').remove()
     let courseId = $(this).data('id')
     let url = '/courses/' + (courseId + 1)
     $.get(url + '.json', function (data) {
