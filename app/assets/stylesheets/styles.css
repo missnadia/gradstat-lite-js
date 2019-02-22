@@ -46,17 +46,18 @@ h2 {
 /* <<======== TABLE STYLES ========>> */
 div#ajax-course-data,
 div#course-show-header,
-div#course-show-data {
+div#course-show-data,
+#students {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
 }
 
 th,
 td,
-div#course-show-data {
+#students {
   border: 1px solid #ddd;
   padding: 8px;
+  width: 80%;
 }
 
 tr:nth-child(even) {
