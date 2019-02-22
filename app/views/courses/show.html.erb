@@ -1,10 +1,8 @@
-<ul>
-  <%= link_to "Back to Courses", courses_path, class: "submit_button" %>
-  <button id="next-course" data-id="<%= @course.id %>">Next Course</button>
-</ul>
 <h2><%= @course.name %></h2>
+<%= link_to "Back to Courses", courses_path, class: "submit_button" %>
 <div id="course-show-header"></div>
 <div id="course-show-data">
+<button id="next-course" data-id="<%= @course.id %>">Next Course</button>
 <table id="students">
   <tr>
     <th>Course</th>
@@ -20,7 +18,7 @@
     <td><%= @course.date %></td>
   </tr>
 </table>
-<br>
+</div>
 <table id="students">
   <tr>
     <th>Notes/Comments</th>
@@ -36,7 +34,7 @@
     </td>
   </tr>
 </table>
-</div>
+
 <ul>
   <%= link_to "Delete #{@course.name}", course_path(@course), method: :delete, data: {confirm: "Are you sure you want to delete #{@course.name}?"}, class: "submit_button" %>
 </ul>
