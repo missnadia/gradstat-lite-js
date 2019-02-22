@@ -28,16 +28,14 @@ function getNextCourse() {
     e.preventDefault()
     let courseId = $(this).data('id')
     let url = '/courses/' + (courseId + 1)
-    $.ajax({
-      url: url,
-      method: "GET",
-      dataType: "JSON"
-    }).done(function (data) {
+    $.get(url + '.json', function (data) {
       let courseData = $("div#course-show-data")
-      $("div#course-show-header").append(Course.courseTableHeader())
+      let courseColumn = $("div#course-show-header")
+      courseColumn.html("");
+      courseColumn.append(Course.courseTableHeader())
       let mycourse = new Course(data);
       let myCourseHTML = mycourse.courseHTML()
-      document.getElementById("course-show-data").innerHTML = myCourseHTML
+      courseData.replaceWith(myCourseHTML)
     })
   })
 }
