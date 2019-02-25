@@ -47,14 +47,16 @@ h2 {
 div#ajax-course-data,
 div#course-show-header,
 div#course-show-data,
-#students {
+#students,
+#comments {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
 }
 
 th,
 td,
-#students {
+#students,
+#comments {
   border: 1px solid #ddd;
   padding: 8px;
   width: 80%;
