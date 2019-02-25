@@ -1,8 +1,6 @@
 class Course < ApplicationRecord
-    has_many :course_students
-    has_many :students, through: :course_students
     has_many :comments, dependent: :destroy
-    belongs_to :student
+    belongs_to :student, foreign_key: "student_id"
     validates :name, presence: true
     validates :date, presence: true
   
@@ -24,10 +22,6 @@ class Course < ApplicationRecord
       "Rails form_tag",
       "Rails form_tag Lab"
     ]
-  
-    def self.class_name
-      self.distinct.pluck(:name)
-    end
   
     def student_username=(username)
       self.student = Student.find(or_create_by(username: username))

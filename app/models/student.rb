@@ -1,6 +1,4 @@
 class Student < ApplicationRecord
-    has_many :course_students
-    has_many :courses, through: :course_students
     has_many :courses
     has_many :comments, through: :courses
     has_secure_password
