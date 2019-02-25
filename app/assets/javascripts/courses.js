@@ -47,25 +47,26 @@ class Course {
     this.name = obj.name
     this.time_spent = obj.time_spent
     this.date = obj.date
+    this.comments = obj.comments
   }
 
   static courseTableHeader() {
     return (`
-<tr>
-  <th>Course</th>
-  <th>Logged Hours</th>
-  <th>Date</th>
-</tr>
-`)
+    <tr>
+      <th>Course</th>
+      <th>Logged Hours</th>
+      <th>Date</th>
+    </tr>
+    `)
   }
 }
 
 Course.prototype.courseHTML = function () {
   return (`
-<tr>
-  <td><a href="/courses/${this.id}" id="course-link">${this.name}</a></td>
-  <td>${this.time_spent}</td>
-  <td>${this.date}</td>
-</tr>
-`);
+  <tr>
+    <td><a href="/courses/${this.id}" id="course-link">${this.name}</a></td>
+    <td>${this.time_spent}</td>
+    <td>${this.date}</td>
+  </tr>
+  `);
 };
