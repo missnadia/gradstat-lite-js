@@ -1,40 +1,49 @@
 <h2><%= @course.name %></h2>
 <%= link_to "Back to Courses", courses_path, class: "submit_button" %>
+<button id="next-course" data-id="<%= @course.id %>">Next Course</button>
 <div id="course-show-header"></div>
 <div id="course-show-data">
-<button id="next-course" data-id="<%= @course.id %>">Next Course</button>
-<table id="students">
-  <tr>
-    <th>Course</th>
-    <th>Time Spent</th>
-    <th>Date</th>
-  </tr>
-  <tr>
-    <td>
-      <%= @course.name %>  
-      <%= link_to "Edit Course", edit_course_path, class: "button" %>
-    </td>
-    <td><%= @course.time_spent %></td>
-    <td><%= @course.date %></td>
-  </tr>
-</table>
-</div>
-<table id="students">
-  <tr>
-    <th>Notes/Comments</th>
-  </tr>
-  <tr>
-    <td>
-      <ul>
+  <table id="students">
+    <tr>
+      <th>Course</th>
+      <th>Time Spent</th>
+      <th>Date</th>
+    </tr>
+    <tr>
+      <td>
+        <%= @course.name %>  
+        <%= link_to "Edit Course", edit_course_path, class: "button" %>
+      </td>
+      <td><%= @course.time_spent %></td>
+      <td><%= @course.date %></td>
+    </tr>
+  </table>
+  <table id="comments">
+    <tr>
+      <th>Notes/Comments</th>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          <button class="load-comments">Load Comments</button>
+        </ul>
+        <ul>
         <%= render @course.comments %>
-      </ul>
-      <ul>
-        <%= render "comments/form" %>
-      </ul>
-    </td>
-  </tr>
-</table>
-
-<ul>
-  <%= link_to "Delete #{@course.name}", course_path(@course), method: :delete, data: {confirm: "Are you sure you want to delete #{@course.name}?"}, class: "submit_button" %>
-</ul>
+          <div id="comments-area">Hello</div>
+        </ul>
+        <ul>
+          <%= render "comments/form" %>
+          <div id="comment-form"></div>
+        </ul>
+        <ul>
+          <div id="ajax-comment-form">
+            <button id="add-comment">Add Comment</button>
+          </div>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <ul>
+    <%= link_to "Delete #{@course.name}", course_path(@course), method: :delete, data: {confirm: "Are you sure you want to delete #{@course.name}?"}, class: "submit_button" %>
+  </ul>
+</div>
