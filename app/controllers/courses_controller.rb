@@ -3,10 +3,9 @@ class CoursesController < ApplicationController
 
   def index
     current_user.admin ? @courses = Course.all.order('date DESC') : @courses = current_user.courses.order('date DESC')
-
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @courses.to_json }
+      format.json { render json: @courses }
     end
   end
 
@@ -17,7 +16,7 @@ class CoursesController < ApplicationController
   def show
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @course.to_json }
+      format.json { render json: @course }
     end
   end
 
