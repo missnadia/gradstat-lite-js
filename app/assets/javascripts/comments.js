@@ -11,8 +11,8 @@ function getComments() {
             method: "GET",
             dataType: "json"
         }).done(function (data) {
-            $("div#comments-area").html("")
             var $comments = $("div#comments-area")
+            $comments.html("")
             data.forEach(function (obj) {
                 let comment = new Comment(obj)
                 $comments.append(comment.commentHTML())
