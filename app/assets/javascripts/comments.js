@@ -1,6 +1,6 @@
 $(function () {
     getComments()
-    addComment()
+    postComment()
 })
 
 function getComments() {
@@ -13,7 +13,7 @@ function getComments() {
         }).done(function (data) {
             $("div#comments-area").html("")
             var $comments = $("div#comments-area")
-            data.forEach(function (obj) {
+            data["comments"].forEach(function (obj) {
                 let comment = new Comment(obj)
                 $comments.append(comment.commentHTML())
             })
@@ -21,11 +21,24 @@ function getComments() {
     })
 }
 
-function addComment() {
-    $("button#add-comment").on("click", function (e) {
+function postComment() {
+    $("form#new_comment.new_comment").on("submit", function (e) {
         e.preventDefault()
-        let newCommentForm = Comment.newCommentForm()
-        document.querySelector("div#ajax-comment-form").innerHTML = newCommentForm
+        url = this.action
+        data = {
+            'authenticity_token': $("input[name='authenticity_token']").val(),
+            'comment': {
+                'comment': $("#comment_comment").val()
+            }
+        }
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function (response) {
+                $("div#comments-area").append(response)
+            }
+        })
     })
 }
 
@@ -36,19 +49,10 @@ class Comment {
         this.course_id = obj.course_id
         this.student_id = obj.student_id
     }
-
-    static newCommentForm() {
-        return (`
-        <form id="new-comment-form">
-            <input type="text" name="comment-body"></input>
-            <input id="submitComment" type="submit" value="Add Comment">
-        </form>
-        `)
-    }
 }
 
 Comment.prototype.commentHTML = function () {
     return (`
-        <p>${this.comment}</p><br>
+    <li>${this.comment}</li>
     `)
 }

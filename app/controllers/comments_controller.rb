@@ -1,17 +1,21 @@
 class CommentsController < ApplicationController
     before_action :set_course, only: [:edit, :create, :update, :destroy]
     before_action :set_comment, only: [:edit, :update, :destroy]
-
+    
     def new
         @comment = Comment.new
     end
-
+    
     def edit
     end
     
     def create
-        @comment = @course.comments.create(params[:comment].permit(:comment))
-        redirect_to @course
+        @comment = @course.comments.build(comment_params)
+        if @comment.save
+            render "comments/show", layout: false
+        else
+            render "courses/show"
+        end
     end
 
     def update
@@ -20,6 +24,9 @@ class CommentsController < ApplicationController
         else
            render :edit
         end
+    end
+
+    def show
     end
   
     def destroy
@@ -35,5 +42,12 @@ class CommentsController < ApplicationController
 
     def set_comment
         @comment =  @course.comments.find(params[:id])
+    end
+
+    def comment_params
+        params.require(:comment).permit(
+        :comment,
+        :course_id
+        )
     end
 end
