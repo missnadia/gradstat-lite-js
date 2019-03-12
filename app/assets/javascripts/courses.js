@@ -1,6 +1,7 @@
 $(function () {
   getCourses();
   getNextCourse();
+  sortCourses();
 });
 
 function getCourses() {
