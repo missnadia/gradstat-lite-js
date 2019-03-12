@@ -24,8 +24,8 @@ function getComments() {
 function postComment() {
     $("form#new_comment.new_comment").on("submit", function (e) {
         e.preventDefault()
-        url = this.action
-        data = {
+        const url = this.action
+        const data = {
             'authenticity_token': $("input[name='authenticity_token']").val(),
             'comment': {
                 'comment': $("#comment_comment").val()
@@ -50,6 +50,14 @@ class Comment {
         this.student_id = obj.student_id
     }
 }
+
+// ES5
+// function Comment(obj) {
+//     this.id = obj.id
+//     this.comment = obj.comment
+//     this.courseId = obj.course_id
+//     this.studentId = obj.student_id
+// }
 
 Comment.prototype.commentHTML = function () {
     return (`

@@ -41,6 +41,38 @@ function getNextCourse() {
   })
 }
 
+function sortCourses() {
+  $('button#load-course-alpha').on('click', function (e) {
+    e.preventDefault()
+    $.ajax({
+      url: "/courses",
+      method: "GET",
+      dataType: "json"
+    }).done(function (data) {
+      let courseData = $("div#ajax-course-data")
+      courseData.html("");
+      courseData.append(Course.courseTableHeader())
+      const sortedCourses = data.sort(function (a, b) {
+        var courseA = a.name.toUpperCase();
+        var courseB = b.name.toUpperCase();
+        if (courseA < courseB) {
+          return -1;
+        }
+        if (courseA > courseB) {
+          return 1;
+        }
+        return 0;
+      });
+      sortedCourses.forEach(function (obj) {
+        let mycourse = new Course(obj);
+        let myCourseHTML = mycourse.courseHTML()
+        courseData.append(myCourseHTML)
+      });
+    });
+
+  })
+}
+
 class Course {
   constructor(obj) {
     this.id = obj.id

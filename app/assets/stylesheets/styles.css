@@ -101,7 +101,8 @@ th {
 
 .submit_button,
 button#load-course-log,
-button#next-course {
+button#next-course,
+button#load-course-alpha {
   background-color: #008cba;
   border: none;
   color: white;
