@@ -4,13 +4,7 @@ GradStat-lite-js is a course management application that logs your study time. T
 
 ## Setup
 
-Clone with SSH:
-
-`$ git clone 'git@github.com:missnadia/gradstat-lite-js.git'`
-
-OR
-
-Clone with HTTPS:
+Clone:
 
 `$ git clone 'https://github.com/missnadia/gradstat-lite-js.git'`
 
